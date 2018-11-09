@@ -4,10 +4,10 @@
 <center>
     <p class="flow-text">SEJA BEM VINDO!</p>
     <p class="flow-text">SELECIONE AS INICIAIS DO SEU NOME ABAIXO</p>
-    <button class="btn-large orange">AMML</button>
-    <button class="btn-large orange">SPAM</button>
-    <button class="btn-large orange">MDL</button>
-    <button class="btn-large orange">JPDC</button>
+    <button onclick="finaliza('AMML')" class="btn-large orange">AMML</button>
+    <button onclick="finaliza('SPAM')" class="btn-large orange">SPAM</button>
+    <button onclick="finaliza('MDL')" class="btn-large orange">MDL</button>
+    <button onclick="finaliza('JPDC')" class="btn-large orange">JPDC</button>
 </center>
 <div class="row">
     <div class="container">
@@ -16,8 +16,9 @@
     </div>
 </div>
 <script>
-    $(document).ready(function () {
-        var $seuCampoCpf = $("#CPF");
-        $seuCampoCpf.mask('000.000.000-00', { reverse: true });
-    });
+    function finaliza(initials){
+        $.post( "api/validateinitials", { "initials": initials }).done(function( data ) {
+            $("#conteudo").html(data);
+        });
+    }
 </script>

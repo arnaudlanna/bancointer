@@ -36,6 +36,19 @@ $app->post('/validateemail', function (Request $request, Response $response, arr
     $_SESSION["email"] = $_POST["email"];
     include_once("steps/nonclient_finish.php");
 });
+$app->post('/validateinitials', function (Request $request, Response $response, array $args) {
+    session_start();
+    $iniciais = $_POST["initials"];
+    if($iniciais == "SPAM"){
+        include_once("steps/client_processing.php");    
+    }else{
+    include_once("steps/not_valid.php");
+    }
+});
+$app->post('/purchasecomplete', function (Request $request, Response $response, array $args) {
+    session_start();
+    include_once("steps/purchase_complete.php");
+});
 $app->run();
 
 function validaCPF($cpf = null)

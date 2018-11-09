@@ -17,7 +17,7 @@
             </div>
         </div>
         <center>
-            <span class="helper-text" data-error="wrong" data-success="right">CPF inserido inválido.</span>
+            <span class="helper-text" data-error="wrong" data-success="right">Ocorreu um erro.</span>
         </center>
     </div>
 </div>

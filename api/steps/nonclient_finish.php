@@ -11,11 +11,3 @@
         </div>
     </div>
 </div>
-<script>
-    function verificaData(){
-        date = $("#date").val();
-        $.post( "api/validatedate", { "date": date }).done(function( data ) {
-            $("#conteudo").html(data);
-        });
-    }
-</script>
